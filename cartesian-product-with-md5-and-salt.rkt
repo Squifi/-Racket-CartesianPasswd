@@ -7,8 +7,14 @@
 (define (0->9)
   (list "0" "1" "2" "3" "4" "5" "6" "7" "8" "9"))
 
+(define (A->Z)
+  (list "A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "N" "O" "P" "Q" "R" "S" "T" "U" "V" "W" "X" "Y" "Z"))
+
 (define (an)
   (append (a->z) (0->9)))
+
+(define (aAx)
+  (append (append (a->z) (A->Z)) (0->9)))
 
 (define (single l1 l2)
   (cond
@@ -21,6 +27,7 @@
     ((empty? l1) (singleTail (an) (cdr l2) acc))
     (else (singleTail (cdr l1) l2 (append  acc (list (string-append (car l2) (car l1))))))))
 
+; triple atom tail
 (define (3pw l1 l2 l3 acc)
   (cond
     ((empty? l3) acc)
